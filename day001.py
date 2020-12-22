@@ -1,3 +1,5 @@
+# Beginner - Understanding Data Types and How to Manipulate Strings
+
 # 輸出
 print("Hello world")
 print("print('what to print')")

@@ -77,3 +77,16 @@ days = 365 * intForAgeLeft
 weeks = 52 * intForAgeLeft
 months = 12 * intForAgeLeft
 print(f"You have {days} days, {weeks} weeks, and {months} months left.")
+
+# Example: Tip Calculator
+# If the bill was $150.00, split between 5 people, with 12% tip. 
+# Each person should pay (150.00 / 5) * 1.12 = 33.6
+# Format the result to 2 decimal places = 33.60
+print("Welcome to the tip calculator.")
+bill = input("What was the total bill? $")
+tipPercentage = input("What percentage tip would you like to give? 10, 12, or 15? ")
+peopleNumber = input("How many people to split the bill? ")
+billWithTip = (float(bill) / int(peopleNumber)) * (float(tipPercentage) / 100 + 1)
+#final_amount = round(billWithTip, 2)
+final_amount = "{:.2f}".format(billWithTip); # 格式化，小數點後固定顯示兩位
+print(f"Each person should pay: ${final_amount}")
