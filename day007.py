@@ -7,9 +7,9 @@ import random
 # import hangman_words
 from os import system
 # 若只 import 檔案名稱，則使用時須加上檔名，eg. hangman_words.word_list
-from hangman_words import word_list
+from day007_hangman_words import word_list
 # import hangman_art
-from hangman_art import stages, logo
+from day007_hangman_art import stages, logo
 
 # 何謂 Hangman：https://en.wikipedia.org/wiki/Hangman_(game)
 # Hangman 線上遊戲：https://hangmanwordgame.com/?fca=1&success=0#/
