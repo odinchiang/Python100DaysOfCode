@@ -1,3 +1,5 @@
+# Intermediate - Turtle & the Graphical User Interface (GUI)
+
 from turtle import Turtle, Screen
 import turtle as t  # t 為別名(alias)
 import random
