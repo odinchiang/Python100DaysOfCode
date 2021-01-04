@@ -23,10 +23,16 @@ starting_positions = [(0, 0), (-20, 0), (-40, 0)]
 
 snake = Snake()
 
+screen.listen()
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
+
 game_is_on = True
 while game_is_on:
     screen.update()  # 每個方塊都移動完再 update 視窗
-    time.sleep(0.2)  # 控制每次 update 視窗的間隔時間
+    time.sleep(0.1)  # 控制每次 update 視窗的間隔時間
     snake.move()
 
 
