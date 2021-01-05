@@ -10,8 +10,10 @@
 # Keep score
 
 # Create the screen
-from turtle import Screen, Turtle
+from turtle import Screen
 from day022_Paddle import Paddle
+from day022_Ball import Ball
+import time
 
 screen = Screen()
 screen.setup(width=800, height=600)
@@ -24,6 +26,9 @@ screen.tracer(0)
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 
+# Create the ball and make it move
+ball = Ball()
+
 screen.listen()
 screen.onkey(r_paddle.go_up, "Up")
 screen.onkey(r_paddle.go_down, "Down")
@@ -32,10 +37,13 @@ screen.onkey(l_paddle.go_down, "s")
 
 game_is_on = True
 while game_is_on:
+    time.sleep(0.1) # 讓速度慢一點
+
     # 等 paddle 移至定位時再顯示，不然會看到 paddle 從中間移到旁邊
     # 要同時設置 screen.tracer(0)
     # 要放在 while 迴圈中不斷 update，不然按上下鍵時，畫面都不會更新
     screen.update()
+    ball.move()
 
 
 screen.exitonclick()
