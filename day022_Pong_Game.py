@@ -13,6 +13,7 @@
 from turtle import Screen
 from day022_Paddle import Paddle
 from day022_Ball import Ball
+from day022_Scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -29,15 +30,19 @@ l_paddle = Paddle((-350, 0))
 # Create the ball and make it move
 ball = Ball()
 
+# Keep score
+scoreboard = Scoreboard()
+
 screen.listen()
-screen.onkey(r_paddle.go_up, "Up")
-screen.onkey(r_paddle.go_down, "Down")
-screen.onkey(l_paddle.go_up, "w")
-screen.onkey(l_paddle.go_down, "s")
+# 用 onkeypress 可以按著按鍵就可以持續作用，而不用一直點擊按鍵
+screen.onkeypress(r_paddle.go_up, "Up")
+screen.onkeypress(r_paddle.go_down, "Down")
+screen.onkeypress(l_paddle.go_up, "w")
+screen.onkeypress(l_paddle.go_down, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)  # 讓速度慢一點
+    time.sleep(ball.move_speed)  # 讓速度慢一點
 
     # 等 paddle 移至定位時再顯示，不然會看到 paddle 從中間移到旁邊
     # 要同時設置 screen.tracer(0)
@@ -56,9 +61,11 @@ while game_is_on:
     # Detect R paddle misses
     if ball.xcor() > 380:
         ball.reset_position()
+        scoreboard.l_point()
 
     # Detect L paddle misses
     if ball.xcor() < -380:
         ball.reset_position()
+        scoreboard.r_point()
 
 screen.exitonclick()
