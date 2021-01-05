@@ -37,7 +37,7 @@ screen.onkey(l_paddle.go_down, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1) # 讓速度慢一點
+    time.sleep(0.1)  # 讓速度慢一點
 
     # 等 paddle 移至定位時再顯示，不然會看到 paddle 從中間移到旁邊
     # 要同時設置 screen.tracer(0)
@@ -45,5 +45,8 @@ while game_is_on:
     screen.update()
     ball.move()
 
+    # Detect collision with wall and bounce
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce()
 
 screen.exitonclick()
