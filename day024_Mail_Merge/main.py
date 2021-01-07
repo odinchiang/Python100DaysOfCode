@@ -18,7 +18,7 @@ with open("Input/Letters/starting_letter.docx") as file:
 
 for name in names:
     # stripped_name = name.replace("\n", "")
-    stripped_name = name.strip() # 用 strip() 也可將換行符號去掉
+    stripped_name = name.strip()  # 用 strip() 也可將換行符號去掉
     new_letter = letter_contents.replace(PLACEHOLDER, stripped_name)
     with open(f"Output/ReadyToSend/letter_for_{stripped_name}.docx", mode="w") as file:
         file.write(new_letter)
