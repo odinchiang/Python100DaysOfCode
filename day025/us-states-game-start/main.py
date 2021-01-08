@@ -12,15 +12,18 @@ data = pandas.read_csv("50_states.csv")
 all_states = data.state.to_list()
 
 correct_list = []
-missing_list = []
 while len(correct_list) < 50:
     answer_state = screen.textinput(title=f"{len(correct_list)}/{len(all_states)} States Correct",
                                     prompt="What's another state's name?").title()
 
     if answer_state == "Exit":
-        for state in all_states:
-            if state not in correct_list:
-                missing_list.append(state)
+        # for state in all_states:
+        #     if state not in correct_list:
+        #         missing_list.append(state)
+
+        # for 迴圈改用 List Comprehension
+        missing_list = [x for x in all_states if x not in correct_list]
+
         new_data = pandas.DataFrame(missing_list)
         new_data.to_csv("states_to_learn.csv")
         break
